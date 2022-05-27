@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\District;
+use App\Municipality;
 class PopulationController extends Controller
 {
     public function indexLocalPopulation()
     {
-       
-        return view('populations.local_population.index');
+        $district=District::all();
+        $municipality=Municipality::all();
+        // return $district;
+        return view('populations.local_population.index',compact(['district','municipality']));
     }
     public function createLocalPopulation()
     {
-        $district=District::all();
+       
         // return $district;
-        return view('populations.local_population.add',compact('district'));
+        // return view('populations.local_population.add',);
     }
 }
