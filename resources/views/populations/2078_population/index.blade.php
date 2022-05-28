@@ -7,33 +7,33 @@
 </div>
 
 
-<div class="container-fluied">
+<div class="container">
     <div class="card z-depth-0">
         <div class="col-12">
-            <label for="" class="col-12 text-center h3 my-4">स्थानिय तह को जनसंख्या </label>
+            <label for="" class="col-12 text-center h3 my-4">२०७८ को प्रारम्भिक तथ्यांक अनुसार स्थानीय तहको जनसंख्या</label>
             <hr>
         </div>
         <div class="card-body">
             
-            <form action="{{route('local-population.store')}}" method="POST" class="form">
+            <form action="{{route('population.store')}}" method="POST" class="form">
                 @csrf
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="input-name">जिल्ला को नाम</label>
                         <select name="district_id" class="form-control" id="">
                             <option value="">जिल्ला छान्नुहोस्</option>
-                            @foreach($district as $item)
+                            @foreach($districts as $item)
                             <option value="{{$item->id}}" data-province-id="">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-12">
                         <label for="input-name">न.पा./गा.वि.स. को नाम</label>
-                        <select name="municipality_name" class="form-control" id="">
+                        <select name="municipality_id" class="form-control" id="">
                             <option value="">न.पा./गा.पा छान्नुहोस्</option>
                             
-                            @foreach($municipality as $item)
-                            <option value="{{$item->name}}" data-province-id="">{{$item->name}}</option>
+                            @foreach($municipalities as $item)
+                            <option value="{{$item->id}}" data-province-id="">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -41,31 +41,15 @@
 
                     <div class="form-group col-md-4">
                         <label for="input-name ">घरपरिवार संख्या</label>
-                        <input type="text" id="input-name" name="house_number" class="form-control" autocomplete="off" value="{{old('house_number')}}">
+                        <input type="text" id="input-name" name="family_num" class="form-control" autocomplete="off" value="{{old('house_number')}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="input-name">पुरुष</label>
-                        <input type="text" id="input-name" name="male_number" class="form-control" autocomplete="off" value="{{old('male_number')}}">
+                        <input type="text" id="input-name" name="male_num" class="form-control" autocomplete="off" value="{{old('male_number')}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="input-name">महिला</label>
-                        <input type="text" id="input-name" name="female_number" class="form-control" autocomplete="off" value="{{old('female_number')}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="input-name">औषत घरपरिवार सदस्य संख्या</label>
-                        <input type="text" id="input-name" name="avg_house_number" class="form-control" autocomplete="off" value="{{old('avg_house_number')}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="input-name">लैगिंक अनुपात</label>
-                        <input type="text" id="input-name" name="anupat" class="form-control" autocomplete="off" value="{{old('anupat')}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="input-name">महिला साक्षरता (प्रतिशत)</label>
-                        <input type="text" id="input-name" name="fml_edu_percentage" class="form-control" autocomplete="off" value="{{old('fml_edu_percentage')}}">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="input-name">पुरुष साक्षरता (प्रतिशत)</label>
-                        <input type="text" id="input-name" name="ml_edu_percentage" class="form-control" autocomplete="off" value="{{old('ml_edu_percentage')}}">
+                        <input type="text" id="input-name" name="female_num" class="form-control" autocomplete="off" value="{{old('female_number')}}">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success z-depth-0">save</button>
@@ -97,10 +81,7 @@
                         <th>जम्मा</th>
                         <th >पुरुष</th>
                         <th>महिला</th>
-                        <th>औषत परिवार सदस्य संख्या</th>
-                        <th>लैगिंक अनुपात</th>
-                        <th>पु. साक्षरता(%)</th>
-                        <th>म. साक्षरता(%)</th>
+                        
                     </tr>
                   
                 </thead>
@@ -108,19 +89,15 @@
                     @forelse ($population as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->districts[0]->name }}</td>
-                        <td>{{ $item->municipality_name }}</td>
-                        <td>{{$item->house_number}}</td>
-                        <td>{{$item->female_number+$item->male_number}}</td>
-                        <td>{{ $item->male_number }}</td>
-                        <td>{{ $item->female_number}}</td>
-                        <td>{{ $item->avg_house_number}}</td>
-                        <td>{{ $item->anupat}}</td>
-                        <td>{{ $item->fml_edu_percentage}}</td>
-                        <td>{{ $item->ml_edu_percentage}}</td>
+                        <td>{{ $item->districts->name }}</td>
+                        <td>{{ $item->municipalities->name}}</td>
+                        <td>{{$item->family_num}}</td>
+                        <td>{{$item->female_num+$item->male_num}}</td>
+                        <td>{{ $item->male_num }}</td>
+                        <td>{{ $item->female_num}}</td>
                         <td>
-                            <a class="action-btn text-primary" href="{{route('local-population.edit',$item->id)}}"><i class="far fa-edit"></i></a>
-                            <form action="{{route('local-population.destroy',$item->id)}}" method="post" onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')" class="form-inline d-inline">
+                            <a class="action-btn text-primary" href="{{route('population.edit',$item->id)}}"><i class="far fa-edit"></i></a>
+                            <form action="{{route('population.destroy',$item->id)}}" method="post" onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')" class="form-inline d-inline">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="action-btn text-danger"><i class="far fa-trash-alt"></i></button>

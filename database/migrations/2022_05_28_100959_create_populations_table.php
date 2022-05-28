@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocalPopulationsTable extends Migration
+class CreatePopulationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class CreateLocalPopulationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('local_populations', function (Blueprint $table) {
+        Schema::create('populations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('district_id');
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
-            $table->string('municipality_name');
-            $table->integer('house_number');
-            $table->integer('male_number');
-            $table->integer('female_number');
-            $table->integer('avg_house_number');
-            $table->integer('anupat');
-            $table->integer('fml_edu_percentage');
-            $table->integer('ml_edu_percentage');
+            $table->unsignedBigInteger('municipality_id');
+            $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade');
+            $table->integer('family_num');
+            $table->integer('male_num');
+            $table->integer('female_num');
             $table->timestamps();
         });
     }
@@ -36,6 +33,6 @@ class CreateLocalPopulationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('local_populations');
+        Schema::dropIfExists('populations');
     }
 }

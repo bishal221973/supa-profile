@@ -200,13 +200,13 @@
         </li>
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5">
-            <a class="nav-link" href="{{ route('local-population') }}">@lang('navigation.local_level_population')</a>
+            <a class="nav-link" href="{{ route('local-population.index') }}">@lang('navigation.local_level_population')</a>
         </li>
         @endhasanyrole
 
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5 ">
-            <a class="nav-link" href="{{ route('fiscal-year.index') }}">@lang('navigation.2078_population')</a>
+            <a class="nav-link" href="{{ route('population.index') }}">@lang('navigation.2078_population')</a>
         </li>
         @endhasanyrole
 

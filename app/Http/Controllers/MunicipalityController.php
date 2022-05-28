@@ -72,7 +72,6 @@ class MunicipalityController extends Controller
     {
         $municipalities = Municipality::all();
         $provinces = Province::with('districts')->get();
-
         return view('municipality.index', compact(['municipalities', 'municipality', 'provinces']));
     }
 
