@@ -212,7 +212,7 @@
 
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5 ">
-            <a class="nav-link" href="{{ route('fiscal-year.index') }}">@lang('navigation.population_according_to_age')</a>
+            <a class="nav-link" href="{{ route('age-population.index') }}">@lang('navigation.population_according_to_age')</a>
         </li>
         @endhasanyrole
         

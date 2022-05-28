@@ -59,6 +59,8 @@ Route::group(
 Route::resource('area', AreaofMunicipalityController::class);
 Route::resource('local-population', LocalPopulationController::class);
 Route::resource('population', PopulationController::class);
+Route::resource('age-population', AgePopulationController::class);
+
 // Route::get('local-population','PopulationController@indexLocalPopulation')->name('local-population');
 // Route::post('local-population-store','PopulationController@storeLocalPopulation')->name('local-population-store');
 // Route::get('local-population-edit/{item}','PopulationController@editLocalPopulation')->name('local-population-edit');
