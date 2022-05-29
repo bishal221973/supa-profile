@@ -28,4 +28,5 @@ return [
     'disability_type'=>'Disability Type',
     'disability_detail'=>'Disability Details',
     'bank_detail'=>'Bank Details',
+    'school'=>'School',
 ];

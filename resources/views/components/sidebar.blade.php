@@ -255,10 +255,16 @@
             <a class="nav-link" href="{{ route('local-bank.index') }}">@lang('navigation.local_bank_number')</a>
         </li>
         @endhasanyrole
-        {{-- ==================Bank end======================== --}}
         
+        {{-- ==================School======================== --}}
+        @hasanyrole('super-admin')
+        <li class="nav-item {{ setActive('home') }}">
+            <a class="nav-link" href="{{ route('school.index') }}">
+                <span class="text-warning"><i class="fa fa-tachometer-alt"></i></span>@lang('navigation.school')
+            </a>
+        </li>
+        @endhasanyrole
 
-        
         @hasanyrole('super-admin')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
