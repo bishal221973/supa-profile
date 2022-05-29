@@ -264,6 +264,14 @@
             </a>
         </li>
         @endhasanyrole
+        {{-- =============Feeder Hostel============== --}}
+        @hasanyrole('super-admin')
+        <li class="nav-item {{ setActive('home') }}">
+            <a class="nav-link" href="{{ route('feeder-hostel.index') }}">
+                <span class="text-warning"><i class="fa fa-tachometer-alt"></i></span>@lang('navigation.feeder_hostel')
+            </a>
+        </li>
+        @endhasanyrole
 
         @hasanyrole('super-admin')
         <li class="nav-item">

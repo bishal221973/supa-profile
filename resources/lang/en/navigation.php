@@ -29,4 +29,5 @@ return [
     'disability_detail'=>'Disability Details',
     'bank_detail'=>'Bank Details',
     'school'=>'School',
+    'feeder_hostel'=>'Feeder Hostel',
 ];
