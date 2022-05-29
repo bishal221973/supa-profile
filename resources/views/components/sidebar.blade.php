@@ -234,13 +234,13 @@
         @endhasanyrole
 
         {{-- ===================Bank start======================== --}}
-        {{-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="#!">
                 <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.bank')</a>
         </li>
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5">
-            <a class="nav-link" href="{{ route('local-population.index') }}">@lang('navigation.local_level_population')</a>
+            <a class="nav-link" href="{{ route('bank-detail.index') }}">@lang('navigation.bank_detail')</a>
         </li>
         @endhasanyrole
 
@@ -254,7 +254,7 @@
         <li class="nav-item pl-5 ">
             <a class="nav-link" href="{{ route('age-population.index') }}">@lang('navigation.population_according_to_age')</a>
         </li>
-        @endhasanyrole --}}
+        @endhasanyrole
         {{-- ==================Bank end======================== --}}
         
 

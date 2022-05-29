@@ -27,4 +27,5 @@ return [
     'disability'=>'अपाङ्गता',
     'disability_type'=>'अपाङ्गता प्रकार',
     'disability_detail'=>'अपांगताको संख्यात्मक विवरण',
+    'bank_detail'=>'बैंक तथा वित्तिय संस्था',
 ];

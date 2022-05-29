@@ -26,5 +26,6 @@ return [
     'bank'=>'Bank',
     'disability'=>'Disability',
     'disability_type'=>'Disability Type',
-    'disability_detail'=>'Disability Details'
+    'disability_detail'=>'Disability Details',
+    'bank_detail'=>'Bank Details',
 ];
