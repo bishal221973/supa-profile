@@ -28,4 +28,5 @@ return [
     'disability_type'=>'अपाङ्गता प्रकार',
     'disability_detail'=>'अपांगताको संख्यात्मक विवरण',
     'bank_detail'=>'बैंक तथा वित्तिय संस्था',
+    'local_bank_number'=>'स्थानीय तहको बैंक तथा वित्तिय संस्था'
 ];

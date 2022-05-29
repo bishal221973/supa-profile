@@ -246,13 +246,13 @@
 
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5 ">
-            <a class="nav-link" href="{{ route('population.index') }}">@lang('navigation.2078_population')</a>
+            <a class="nav-link" href="{{ route('bank.index') }}">@lang('navigation.bank')</a>
         </li>
         @endhasanyrole
 
         @hasanyrole('super-admin|admin')
         <li class="nav-item pl-5 ">
-            <a class="nav-link" href="{{ route('age-population.index') }}">@lang('navigation.population_according_to_age')</a>
+            <a class="nav-link" href="{{ route('local-bank.index') }}">@lang('navigation.local_bank_number')</a>
         </li>
         @endhasanyrole
         {{-- ==================Bank end======================== --}}

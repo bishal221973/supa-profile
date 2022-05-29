@@ -63,6 +63,8 @@ Route::resource('age-population', AgePopulationController::class);
 Route::resource('disability', DisabilityController::class);
 Route::resource('disability-detail', DisabilityDetailController::class);
 Route::resource('bank-detail', BankDetailController::class);
+Route::resource('bank', BankController::class);
+Route::resource('local-bank', LocalBankController::class);
 // Route::get('local-population','PopulationController@indexLocalPopulation')->name('local-population');
 // Route::post('local-population-store','PopulationController@storeLocalPopulation')->name('local-population-store');
 // Route::get('local-population-edit/{item}','PopulationController@editLocalPopulation')->name('local-population-edit');
