@@ -17,8 +17,10 @@ class FeederHostelController extends Controller
     {        
         $provinces = Province::with('districts')->get();
         $municipalities=Municipality::all();
-        $feederhostels=FeederHostel::all();
-        return view('hostel.index',compact(['provinces','municipalities','feederhostels']));
+        $feederhostels=FeederHostel::with('districts')->with('municipalities')->get();
+        $fhostels=new FeederHostel;
+        // return $feederhostels;
+        return view('hostel.index',compact(['provinces','municipalities','feederhostels','fhostels']));
     }
 
     /**
@@ -70,7 +72,14 @@ class FeederHostelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $provinces = Province::with('districts')->get();
+        $municipalities=Municipality::all();
+        $feederhostels=FeederHostel::with('districts')->with('municipalities')->get();
+        $fhostels=FeederHostel::with('districts')->with('municipalities')->where('id',$id)->get()[0];
+        
+        // $feederhostels= $feederhostels[0];
+        // return $fhostels;
+        return view('hostel.index',compact(['provinces','municipalities','feederhostels','fhostels']));
     }
 
     /**
@@ -82,7 +91,16 @@ class FeederHostelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'district_id'=>'required',
+            'municipality_id'=>'required',
+            'school_name'=>'required',
+            'quota'=>'required',
+            'student_number'=>'required'
+        ]);
+
+        FeederHostel::find($id)->update($request->all());
+        return redirect()->back()->with('success','फिडर छात्रावासको विवरण सफलतापूर्वक अपडेट भयो');
     }
 
     /**
@@ -93,6 +111,7 @@ class FeederHostelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        FeederHostel::find($id)->delete();
+        return redirect()->back()->with('success','फिडर छात्रावासको विवरण सफलतापूर्वक हटाइयो');
     }
 }
