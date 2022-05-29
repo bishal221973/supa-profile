@@ -22,5 +22,9 @@ return [
     'population'=>'जनसंख्य विवरण',
     'local_level_population'=>'स्थानिय तहको जनसंख्या',
     '2078_population'=>'२०७८ को जनसंख्या',
-    'population_according_to_age'=>'उमेर अनुसारको जनसंख्या'
+    'population_according_to_age'=>'उमेर अनुसारको जनसंख्या',
+    'bank'=>'बैंक',
+    'disability'=>'अपाङ्गता',
+    'disability_type'=>'अपाङ्गता प्रकार',
+    'disability_detail'=>'अपांगताको संख्यात्मक विवरण',
 ];

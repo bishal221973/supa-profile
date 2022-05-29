@@ -22,5 +22,9 @@ return [
     'population'=>'Population Details',
     'local_level_population'=>'Local level population',
     '2078_population'=>"Population of 2078",
-    'population_according_to_age'=>'Population according to population'
+    'population_according_to_age'=>'Population according to population',
+    'bank'=>'Bank',
+    'disability'=>'Disability',
+    'disability_type'=>'Disability Type',
+    'disability_detail'=>'Disability Details'
 ];

@@ -185,7 +185,7 @@
             <a class="nav-link" href="{{ route('ward.index') }}">@lang('navigation.ward')</a>
         </li>
         @endcan
-
+        
         @hasanyrole('super-admin|admin')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('area.index') }}" target="_blank">
@@ -193,7 +193,7 @@
             </a>
         </li>
         @endhasanyrole
-
+        {{-- ===================Population start======================== --}}
         <li class="nav-item">
             <a class="nav-link" href="#!">
                 <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.population')</a>
@@ -215,15 +215,49 @@
             <a class="nav-link" href="{{ route('age-population.index') }}">@lang('navigation.population_according_to_age')</a>
         </li>
         @endhasanyrole
-        
 
-        @hasanyrole('super-admin|admin')
+        {{-- ================disability================= --}}
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('area.index') }}" target="_blank">
-                <span class="text-info"><i class="fas fa-exclamation-triangle"></i></span>@lang('navigation.population')
-            </a>
+            <a class="nav-link" href="#!">
+                <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.disability')</a>
+        </li>
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5">
+            <a class="nav-link" href="{{ route('disability.index') }}">@lang('navigation.disability_type')</a>
         </li>
         @endhasanyrole
+
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('disability-detail.index') }}">@lang('navigation.disability_detail')</a>
+        </li>
+        @endhasanyrole
+
+        {{-- ===================Bank start======================== --}}
+        {{-- <li class="nav-item">
+            <a class="nav-link" href="#!">
+                <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.bank')</a>
+        </li>
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5">
+            <a class="nav-link" href="{{ route('local-population.index') }}">@lang('navigation.local_level_population')</a>
+        </li>
+        @endhasanyrole
+
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('population.index') }}">@lang('navigation.2078_population')</a>
+        </li>
+        @endhasanyrole
+
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('age-population.index') }}">@lang('navigation.population_according_to_age')</a>
+        </li>
+        @endhasanyrole --}}
+        {{-- ==================Bank end======================== --}}
+        
+
         
         @hasanyrole('super-admin')
         <li class="nav-item">
