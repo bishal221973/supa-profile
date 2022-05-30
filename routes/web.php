@@ -67,6 +67,7 @@ Route::resource('bank', BankController::class);
 Route::resource('local-bank', LocalBankController::class);
 Route::resource('school', SchoolController::class);
 Route::resource('feeder-hostel', FeederHostelController::class);
+Route::resource('kamlari-hostel', KamlariHostelController::class);
 // Route::get('local-population','PopulationController@indexLocalPopulation')->name('local-population');
 // Route::post('local-population-store','PopulationController@storeLocalPopulation')->name('local-population-store');
 // Route::get('local-population-edit/{item}','PopulationController@editLocalPopulation')->name('local-population-edit');

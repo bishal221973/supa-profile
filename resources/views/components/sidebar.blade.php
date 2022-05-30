@@ -258,7 +258,7 @@
         
         {{-- ==================School======================== --}}
         @hasanyrole('super-admin')
-        <li class="nav-item {{ setActive('home') }}">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('school.index') }}">
                 <span class="text-warning"><i class="fa fa-tachometer-alt"></i></span>@lang('navigation.school')
             </a>
@@ -266,12 +266,20 @@
         @endhasanyrole
         {{-- =============Feeder Hostel============== --}}
         @hasanyrole('super-admin')
-        <li class="nav-item {{ setActive('home') }}">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('feeder-hostel.index') }}">
                 <span class="text-warning"><i class="fa fa-tachometer-alt"></i></span>@lang('navigation.feeder_hostel')
             </a>
         </li>
         @endhasanyrole
+         {{-- =============kamlari Hostel============== --}}
+         @hasanyrole('super-admin')
+         <li class="nav-item">
+             <a class="nav-link" href="{{ route('kamlari-hostel.index') }}">
+                 <span class="text-warning"><i class="fa fa-tachometer-alt"></i></span>@lang('navigation.kamlari_hostel')
+             </a>
+         </li>
+         @endhasanyrole
 
         @hasanyrole('super-admin')
         <li class="nav-item">

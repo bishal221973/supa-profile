@@ -30,4 +30,6 @@ return [
     'bank_detail'=>'Bank Details',
     'school'=>'School',
     'feeder_hostel'=>'Feeder Hostel',
+    'kamlari_hostel'=>'Kamlari Hostel'
+
 ];
