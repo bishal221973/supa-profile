@@ -280,7 +280,34 @@
              </a>
          </li>
          @endhasanyrole
+         {{-- ===================Student start======================== --}}
+        <li class="nav-item">
+            <a class="nav-link" href="#!">
+                <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.student')</a>
+        </li>
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5">
+            <a class="nav-link" href="{{ route('goverment-student.index') }}">@lang('navigation.goverment_student')</a>
+        </li>
+        @endhasanyrole
 
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('bank.index') }}">@lang('navigation.child_development')</a>
+        </li>
+        @endhasanyrole
+
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('local-bank.index') }}">@lang('navigation.dalit_student')</a>
+        </li>
+        @endhasanyrole
+        @hasanyrole('super-admin|admin')
+        <li class="nav-item pl-5 ">
+            <a class="nav-link" href="{{ route('local-bank.index') }}">@lang('navigation.janjati_student')</a>
+        </li>
+        @endhasanyrole
+        {{-- ========================================================= --}}
         @hasanyrole('super-admin')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">

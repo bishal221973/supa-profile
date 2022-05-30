@@ -30,6 +30,11 @@ return [
     'bank_detail'=>'Bank Details',
     'school'=>'School',
     'feeder_hostel'=>'Feeder Hostel',
-    'kamlari_hostel'=>'Kamlari Hostel'
+    'kamlari_hostel'=>'Kamlari Hostel',
+    'goverment_student'=>'Goverment School Student',
+    'student'=>'Student',
+    'child_development'=>'Child Development Student',
+    'dalit_student'=>'Dalit Student',
+    'janjati_student'=>'Janjati Student',
 
 ];
