@@ -1,100 +1,103 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        @isset($title) {{ $title }} | @endisset {{ config('app.name', __('appname')) }}
+    </title>
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+    @include('layouts.partials.styles')
+    @stack('styles')
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet"/>
+</head>
+<body class="sidebar-opened">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <fields-form/>
             </div>
         </div>
-    </body>
+        <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+    </div>
+<div id="app">
+    @guest
+    @yield('content')
+    @endguest
+
+    @auth
+    <div id="sidebar" class="bg-deep-blue" data-collapsed="false">
+        {{-- <x-sidebar></x-sidebar> --}}
+    </div>
+    <div id="content-area" class="flex-grow-1">
+        {{-- <x-navbar></x-navbar> --}}
+        <div class="p-3">
+            @yield('content')
+        </div>
+    </div>
+    @endauth
+
+</div>
+    @include('layouts.partials.scripts')
+
+    <script>
+        /**
+         * Toggle the sidebar
+         * @param null
+         **/
+        function toggleSidebar() {
+            document.getElementsByTagName('body')[0].classList.toggle('sidebar-opened')
+        }
+
+        /**
+         * Toggle the sidebar with keyboard
+         * Key combination: Ctrl + Shift + S
+         */
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 83) {
+                toggleSidebar();
+            }
+        };
+
+        /**
+         * Search dropdown options
+         * @param searchTerm
+         * @param targets
+         * @param dataKey as data-keys
+         * @usage filterOptions(10, '#select-district-id option', 'province-id');
+         */
+        function filterOptions(searchTerm, targets, dataKey) {
+            // console.log('Filtering with data-key: ' + dataKey + ' search term: '+ searchTerm);
+            $(targets).each(function() {
+                if ($(this).data(dataKey) == searchTerm) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            if ($('.nepali-date')[0]) {
+                $('.nepali-date').nepaliDatePicker({
+                    disableDaysAfter: 1,
+                    ndpYear: true,
+                    ndpMonth: true,
+                    ndpYearCount: 10
+                });
+            }
+
+            var today = NepaliFunctions.ConvertDateFormat(NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD'), 'YYYY-MM-DD');
+            $(".date-today[value='']").val(today);
+
+        });
+
+    </script>
+    @stack('scripts')
+</body>
 </html>

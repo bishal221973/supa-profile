@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@push('styles')
+{{-- @push('styles')
 <style>
     #dashboard {
         min-height: 100vh;
@@ -12,7 +12,7 @@
     }
 
 </style>
-@endpush
+@endpush --}}
 
 @section('content')
 <div id="dashboard" class="m-n3">
